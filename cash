@@ -1,0 +1,44 @@
+#include <stdio.h>
+#include <cs50.h>
+#include <math.h>
+
+
+
+int main(void)
+{
+
+    float n; //ask user about the change
+    do //do this loop until you get a positive imput from a user
+    {
+        n = get_float("change owned: "); //get_float function
+    }
+    while (n< 0); //positive number condition
+
+
+    int convertn = round(n * 100); // dollars to cents
+    int counter = 0; //initializing counter
+
+    while (convertn >= 25) //loop for quaters
+    {
+        convertn = convertn - 25;
+        counter++;
+    }
+    while (convertn >= 10) //loop for dimes
+    {
+        convertn = convertn - 10;
+        counter++;
+    }
+    while (convertn >= 5) //loop for nicles
+    {
+        convertn = convertn - 5;
+        counter++;
+    }
+    while (convertn >= 1 && convertn > 0) //loop for pennies
+    {
+        convertn = convertn - 1;
+        counter++;
+    }
+
+    printf("%d\n", counter); //printing total amount of coins
+
+}
